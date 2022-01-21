@@ -48,13 +48,16 @@ class _SetUpUIState extends State<SetUpUI> {
         UserManager().userId = arguments["userId"];
         UserManager().teacherId = arguments["teacherId"];
         UserManager().nickName = arguments["nickName"];
+        UserManager().phoneNumber = arguments['phoneNumber'];
         tokenManager().roleID = arguments["roleID"];
         tokenManager().access_token = arguments["token"];
+
         setState(() {
           selectID = tokenManager().roleID;
         });
         // Fluttertoast.showToast(
-        //   msg: 'MethodChannelroleID ====${tokenManager().roleID}',
+        //   msg:
+        //       'MethodChannelroleID ====${tokenManager().roleID}phoneId===${UserManager().phoneId}',
         // );
         getRoleRequestList();
       }
@@ -69,7 +72,7 @@ class _SetUpUIState extends State<SetUpUI> {
 
   getRoleRequestList() async {
     HttpDYL().getNetWork("/api/auth/queryroles",
-        params: {"mobile": UserManager().phoneId}).then((result) {
+        params: {"mobile": UserManager().phoneNumber}).then((result) {
       setState(() {
         roleArray = result.data;
       });
@@ -101,6 +104,10 @@ class _SetUpUIState extends State<SetUpUI> {
         setState(() {
           selectID = roleId;
         });
+      } else {
+        Fluttertoast.showToast(
+          msg: "操作失败",
+        );
       }
     });
   }

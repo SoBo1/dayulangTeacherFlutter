@@ -19,14 +19,14 @@ class UserManager {
   late String teacherHeadPictureUrl = '';
   late String teacherBackGroundPictureUrl = '';
   late String teacherNickName = '';
-  late String type = '1';
+  late String type = '';
 
   late int fishNum;
   late int fishboneNum;
   late int dayulongNumber;
   late int isShopOwner;
 
-  late String phoneId = '13162919712';
+  late String phoneId = ''; //13162919712
   // late String token =
   //     "eyJhbGciOiJSUzI1NiIsImtpZCI6IkQxRkU4OEREMERDOTcyNjM3RkZBQzdGNTkwMkI0MUNBIiwidHlwIjoiYXQrand0In0.eyJuYmYiOjE2NDE1NDcyNjksImV4cCI6MTY0MTYzMzY2OSwiaXNzIjoiaHR0cDovL3Rlc3QuZGF5dWxvbmcuY24iLCJhdWQiOiJEYXl1bG9uZyIsImNsaWVudF9pZCI6IkRheXVsb25nX0FwcCIsInN1YiI6ImEzZmU2NDRlLWI4MTUtN2Y4Ni1iOTFiLTM5ZmE0YWQxMTIzMCIsImF1dGhfdGltZSI6MTY0MTU0NzI2OSwiaWRwIjoibG9jYWwiLCJuYW1lIjoi5bqX6ZW_5rGq6K-X5paHMSIsInBob25lX251bWJlciI6IjEzMTYyOTE5NzEyIiwicGhvbmVfbnVtYmVyX3ZlcmlmaWVkIjoiRmFsc2UiLCJlbWFpbCI6IuW6l-mVv-axquivl-aWh0BkYXl1bG9uZy5jb20iLCJlbWFpbF92ZXJpZmllZCI6IkZhbHNlIiwiaWQiOiJhM2ZlNjQ0ZS1iODE1LTdmODYtYjkxYi0zOWZhNGFkMTEyMzAiLCJVc2VySWQiOiI4MDAwMDEiLCJyb2xlIjpbIuebtOiQpeW6l-mVvyIsIuaAu-mDqOi0ouWKoSJdLCJqdGkiOiIzMjg5REMwRjk1MTIxRjg5MjFBNTk4NTNCRUQyQzA4RCIsImlhdCI6MTY0MTU0NzI2OSwic2NvcGUiOlsiRGF5dWxvbmciLCJvZmZsaW5lX2FjY2VzcyJdLCJhbXIiOlsicHdkIl19.bR0S6o-onimSUvLgy2N7CqmBUX6spL338WFr2ThU4Tux-Xmrxzm5MsJq1_0TM1AVCsM0WW0zZlMICIWCcstf_5v3Kk9QTWrOIY6ifTaxoDFupoLMJIMrUjTD2NbYpbapCcuS5HNjro_Hx3xWLu0pAydcrwPpqdXVI1l3RQh5fqIJxnUM5GMgNTOOIh";
   // Use the factory keyword when implementing a constructor that doesn’t always create a new instance of its class.
