@@ -163,7 +163,9 @@ class _SetUpUIState extends State<SetUpUI> {
                           // Fluttertoast.showToast(
                           //   msg: 'selectID===$selectID idStr===$idStr}',
                           // );
-                          _showDialog(context, nameStr, idStr);
+                          if (roleArray.length > 1) {
+                            _showDialog(context, nameStr, idStr);
+                          }
                         },
                         child: Container(
                             decoration: BoxDecoration(

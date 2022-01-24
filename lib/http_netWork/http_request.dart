@@ -8,7 +8,7 @@ import 'Http_config.dart';
 class HttpDYL2 {
   // dio 的 options 配置
   static final BaseOptions _options = BaseOptions(
-    baseUrl: baseUrl, // 请求的baseUrl
+    baseUrl: Api().baseUrl, // 请求的baseUrl
     connectTimeout: 10000, // 连接超时时间
     receiveTimeout: 15000, // 响应超时时间
     // contentType: contentType['form'],

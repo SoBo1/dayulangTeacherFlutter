@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:dio/dio.dart';
 import 'package:my_flutter/DYL_userManager.dart';
 import 'package:my_flutter/TokenManager/tokenManager.dart';
+import 'package:my_flutter/http_netWork/Http_config.dart';
 import 'package:my_flutter/http_netWork/http_loading.dart';
 import 'ReturnData.dart';
 import 'package:fluttertoast/fluttertoast.dart';
@@ -20,7 +21,7 @@ class HttpDYL {
   // 初始化请求配置
   init() {
     BaseOptions baseOptions = BaseOptions(
-        baseUrl: "https://test.dayulong.cn/napi",
+        baseUrl: Api().baseUrl,
         connectTimeout: 5000,
         headers: {
           "DEVICE": "IOS",

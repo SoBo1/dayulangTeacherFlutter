@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:my_flutter/OC-brdging/OC-brdging.dart';
+import 'package:my_flutter/http_netWork/Http_config.dart';
 import 'RoleChangeVC.dart';
 
 import 'dart:ui' as ui;
@@ -9,6 +12,13 @@ void main() {
   switch (defaultRouteName) {
     case 'roleChangeVCFlutter':
       {
+        MethodChannel platform = MethodChannel(OCPull_FlutterBrdgingDYL);
+        platform.setMethodCallHandler((MethodCall call) {
+          if (call.method == refreshBaseConfig) {
+            Api().baseUrl = call.arguments["baseUrl"];
+          }
+          return Future<dynamic>.value();
+        });
         runApp(const RoleChangeVCAPP());
       }
       break;

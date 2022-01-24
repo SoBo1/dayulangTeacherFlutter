@@ -15,7 +15,7 @@ String OCPull_FlutterBrdgingDYL = "buildBrdgingDYLPush";
 
 String appRoleRefreshToken = 'roleRefreshTokenFlutter';
 String refreshUsermanager = 'refreshUsermanager';
-
+String refreshBaseConfig = 'flutter-BaseConfig';
 //给app端传值
 // ignore: non_constant_identifier_names
 void pushApp_Brdging(String key, {params}) async {
