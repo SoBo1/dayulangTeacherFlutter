@@ -5,7 +5,7 @@ class UserManager {
   late String userId = ""; //a3fe644e-b815-7f86-b91b-39fa4ad11230
   late String teacherId = ""; //b4377b7d-ea3c-7c2a-1219-39fe1d13626d
   late String userSig = '';
-  late String phoneNumber = '';
+  late String phoneNumber = ''; //13162919712
   late String passwordHash = '';
   late String headPictureUrl = '';
   late String backGroundPictureUrl = '';

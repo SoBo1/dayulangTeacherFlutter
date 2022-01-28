@@ -10,8 +10,8 @@ class Api {
   static final Api _shareManange = Api._internal();
 
   final isProd = const bool.fromEnvironment('dart.vm.product');
-//  late String baseUrl = 'https://test.dayulong.cn/napi';
-  late String baseUrl = 'https://www.dayulong.cn';
+  late String baseUrl = 'https://test.dayulong.cn/napi';
+  // late String baseUrl = 'https://www.dayulong.cn';
 
   factory Api() => _shareManange;
   Api._internal();

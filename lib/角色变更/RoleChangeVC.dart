@@ -4,7 +4,7 @@ import 'package:my_flutter/DYL_userManager.dart';
 import 'package:my_flutter/OC-brdging/OC-brdging.dart';
 import 'package:my_flutter/TokenManager/tokenManager.dart';
 import 'package:my_flutter/http_netWork/http_loading.dart';
-import 'http_netWork/http_requestv2.dart';
+import '../http_netWork/http_requestv2.dart';
 import 'dart:io';
 import 'package:my_flutter/OC-brdging/OC-brdging.dart';
 import 'package:fluttertoast/fluttertoast.dart';
@@ -41,6 +41,7 @@ class _SetUpUIState extends State<SetUpUI> {
   @override
   void initState() {
     super.initState();
+    getRoleRequestList();
     MethodChannel platform = MethodChannel(OCPull_FlutterBrdgingDYL);
     platform.setMethodCallHandler((MethodCall call) {
       if (call.method == refreshUsermanager) {
@@ -87,7 +88,7 @@ class _SetUpUIState extends State<SetUpUI> {
       'scope': "Dayulong offline_access",
       'client_id': "Dayulong_App",
       'client_secret': "Dayulong88888888",
-      'username': UserManager().phoneId,
+      'username': UserManager().phoneNumber,
       // 'password': '',
       'loginType': "9",
       'code': tokenManager().access_token,

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:my_flutter/OC-brdging/OC-brdging.dart';
 import 'package:my_flutter/http_netWork/Http_config.dart';
-import 'RoleChangeVC.dart';
+import '角色变更/RoleChangeVC.dart';
 
 import 'dart:ui' as ui;
 
