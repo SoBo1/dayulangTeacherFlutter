@@ -8,10 +8,14 @@
 // };
 class Api {
   static final Api _shareManange = Api._internal();
-
+  //设置环境
+  late bool isReqlest = true;
   final isProd = const bool.fromEnvironment('dart.vm.product');
-  late String baseUrl = 'https://test.dayulong.cn/napi';
+
+  late String baseUrl =
+      isReqlest ? 'https://www.dayulong.cn' : 'https://test.dayulong.cn/napi';
   // late String baseUrl = 'https://www.dayulong.cn';
+  //  'http://114.88.161.211:8066';
 
   factory Api() => _shareManange;
   Api._internal();

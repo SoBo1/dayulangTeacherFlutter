@@ -20,21 +20,21 @@ class HttpDYL {
 
   // 初始化请求配置
   init() {
-    BaseOptions baseOptions = BaseOptions(
-        baseUrl: Api().baseUrl,
-        connectTimeout: 5000,
-        headers: {
-          "DEVICE": "IOS",
-          "terminal": "3",
-          "VERSION": "app-version",
-          // "device-id": "",
-          "app-code": "Dayulong_Merchant",
-          // "environment": "",
-          // ignore: equal_keys_in_map
-          "environment": "sit",
-          "Authorization": "Bearer " + tokenManager().access_token,
-          'Content-Type': 'application/x-www-form-urlencoded',
-        });
+    BaseOptions baseOptions =
+        BaseOptions(baseUrl: Api().baseUrl, connectTimeout: 5000, headers: {
+      "DEVICE": "IOS",
+      "terminal": "3",
+      "VERSION": "app-version",
+      "app-code": "Dayulong_Merchant",
+      // "device-id": "",
+      // ignore: equal_keys_in_map
+      "app-code": "Dayulong_Merchant",
+      // "environment": "",
+      // ignore: equal_keys_in_map
+      "environment": Api().isReqlest ? "prod" : 'sit',
+      "Authorization": "Bearer " + tokenManager().access_token,
+      'Content-Type': 'application/x-www-form-urlencoded',
+    });
     _dio = Dio(baseOptions);
   }
 
@@ -44,8 +44,13 @@ class HttpDYL {
       {String method = "GET",
       bool isModel = true,
       required Map<String, dynamic> params}) async {
-    Options options = Options(method: method);
+    Options options = Options(method: method, headers: _dio?.options.headers);
     try {
+      if (options.headers != null) {
+        options.headers!['Authorization'] =
+            "Bearer " + tokenManager().access_token;
+      }
+
       final result =
           await _dio?.request(url, queryParameters: params, options: options);
       ReturnData messageData = ReturnData.fromJson(result?.data);
@@ -65,6 +70,8 @@ class HttpDYL {
     Response? response;
     try {
       response = await _dio?.post(url, data: params);
+      // print('url====$url');
+      // print('params====$params');
 
       ReturnData messageData = ReturnData.fromJson(response?.data);
       return messageData;

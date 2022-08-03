@@ -1,11 +1,6 @@
-import 'dart:ffi';
-
-import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'dart:async';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:my_flutter/DYL_userManager.dart';
-import 'package:my_flutter/TokenManager/tokenManager.dart';
 
 //与app端定义一样 不可随便变更
 // ignore: non_constant_identifier_names
@@ -15,7 +10,7 @@ String OCPull_FlutterBrdgingDYL = "buildBrdgingDYLPush";
 
 String appRoleRefreshToken = 'roleRefreshTokenFlutter';
 String refreshUsermanager = 'refreshUsermanager';
-String refreshBaseConfig = 'flutter-BaseConfig';
+String refreshBaseConfig = 'flutterBaseUrlConfig';
 //给app端传值
 // ignore: non_constant_identifier_names
 void pushApp_Brdging(String key, {params}) async {
@@ -36,6 +31,7 @@ Future<dynamic> pullApp_Brdging(String key, {params}) async {
   MethodChannel platform = MethodChannel(OCPull_FlutterBrdgingDYL);
 
   platform.setMethodCallHandler((MethodCall call) {
+    print('brdging = ${call.method}+         ${call.arguments}');
     if (call.method == key) {
       dynamic arguments = call.arguments;
       Fluttertoast.showToast(

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:my_flutter/%E8%A7%92%E8%89%B2%E5%8F%98%E6%9B%B4/RoleVC.dart';
+import 'package:my_flutter/%E8%A7%92%E8%89%B2%E5%8F%98%E6%9B%B4/RoleVCMore.dart';
 import 'package:my_flutter/OC-brdging/OC-brdging.dart';
 import 'package:my_flutter/http_netWork/Http_config.dart';
 import '角色变更/RoleChangeVC.dart';
@@ -8,30 +10,38 @@ import 'dart:ui' as ui;
 
 void main() {
   var defaultRouteName = ui.window.defaultRouteName;
+  print('windowName =========== $defaultRouteName');
   //获取移动端传过来的id
   switch (defaultRouteName) {
     case 'roleChangeVCFlutter':
       {
-        MethodChannel platform = MethodChannel(OCPull_FlutterBrdgingDYL);
+        print('进通道');
+        MethodChannel platform = MethodChannel(refreshBaseConfig);
         platform.setMethodCallHandler((MethodCall call) {
           if (call.method == refreshBaseConfig) {
             Api().baseUrl = call.arguments["baseUrl"];
           }
           return Future<dynamic>.value();
         });
-        runApp(const RoleChangeVCAPP());
+        runApp(RoleChangeVCAPP());
       }
       break;
     default:
-      runApp(const RoleChangeVCAPP());
+      {
+        print('没进通道');
+        runApp(RoleChangeVCAPP());
+      }
   }
 }
 
-// ignore: must_be_immutable
-class RoleChangeVCAPP extends StatelessWidget {
-  // ignore: prefer_typing_uninitialized_variables
+class RoleChangeVCAPP extends StatefulWidget {
+  RoleChangeVCAPP({Key? key}) : super(key: key);
 
-  const RoleChangeVCAPP({Key? key}) : super(key: key);
+  @override
+  State<RoleChangeVCAPP> createState() => _RoleChangeVCAPPState();
+}
+
+class _RoleChangeVCAPPState extends State<RoleChangeVCAPP> {
   final bool isInRelease = true;
   @override
   Widget build(BuildContext context) {
@@ -40,10 +50,30 @@ class RoleChangeVCAPP extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const RoleChangeVC(),
+      // home: const RoleVCModre(),
+      // home: GroupListPage(),
+      home: RoleChangeVC(),
     );
   }
 }
+// ignore: must_be_immutable
+// class RoleChangeVCAPP extends StatelessWidget {
+//   // ignore: prefer_typing_uninitialized_variables
+
+//   const RoleChangeVCAPP({Key? key}) : super(key: key);
+//   final bool isInRelease = true;
+//   @override
+//   Widget build(BuildContext context) {
+//     return MaterialApp(
+//       debugShowCheckedModeBanner: false,
+//       theme: ThemeData(
+//         primarySwatch: Colors.blue,
+//       ),
+//       // home: GroupListPage(),
+//       home: RoleChangeVCAPP(),
+//     );
+//   }
+// }
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({Key? key, required this.title}) : super(key: key);
